@@ -7,7 +7,7 @@ import java.util.List;
 
 
 @RestController
-public class Week2Refresher {
+public class productController {
    private List<Product> productlist = new ArrayList<Product>();
 
    @PostMapping("/products")
