@@ -9,8 +9,7 @@ import java.util.List;
 @Service
 public class productService {
 
-    private List<Product> productList = new ArrayList<>();
-
+    private final List<Product> productList = new ArrayList<>();
 
     public List<Product> getAllProducts() {
         return productList;
@@ -21,6 +20,20 @@ public class productService {
         return product;
     }
 
+    public Product updateProduct(Long id, Product updatedProduct) {
+        for (Product product : productList) {
+            if (product.getId().equals(id)) {
+                product.setName(updatedProduct.getName());
+                product.setPrice(updatedProduct.getPrice());
+                return product;
+            }
+        }
+        return null; // Return null if the product with the given id is not found
+    }
 
-
+    public void deleteProduct(Long id) {
+        productList.removeIf(product -> product.getId().equals(id)); // More descriptive name
+    }
 }
+
+
