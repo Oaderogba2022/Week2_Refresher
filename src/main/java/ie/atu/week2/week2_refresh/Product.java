@@ -3,10 +3,10 @@ package ie.atu.week2.week2_refresh;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Positive;
 
 @Data
 @AllArgsConstructor
@@ -14,10 +14,10 @@ import javax.validation.constraints.Size;
 public class Product {
     private Long id;
 
-    @NotNull
-    @Size(min = 2)
+    @NotNull(message = "Product name cannot be null")
+    @Size(min = 2, message = "Product name must be at least 2 characters")
     private String name;
 
-    @Positive
+    @Positive(message = "Price must be a positive number")
     private double price;
 }
