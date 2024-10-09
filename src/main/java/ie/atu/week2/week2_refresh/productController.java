@@ -25,7 +25,8 @@ public class productController {
    @PostMapping
    @ResponseStatus(HttpStatus.CREATED)
    public Product createProduct(@Valid @RequestBody Product product) {
-      InventoryResponse inventoryResponse = inventoryClient.getInventory(product.getId());
+      Inventory inventory = inventoryClient.getInventory(product.getId());
+      // You can handle the inventory response here as needed
       return productService.addProduct(product);
    }
 }
